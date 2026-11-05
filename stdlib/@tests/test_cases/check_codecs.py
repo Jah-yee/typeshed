@@ -11,3 +11,7 @@ codecs.decode("x", "utf-8")  # type: ignore
 
 assert_type(codecs.decode("ab", "hex"), bytes)
 assert_type(codecs.decode(b"ab", "hex"), bytes)
+
+# https://github.com/python/typeshed/issues/16441
+info = codecs.lookup("UTF-8")
+info.decode(b"potato", errors="replace")
